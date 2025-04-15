@@ -48,7 +48,7 @@ export default function Display() {
     };
 
     try {
-      const res = await axios.post("http://localhost:3000/api/getitem", payload);
+      const res = await axios.post("/api/getitem", payload);
       setFiltered(res.data.response || []);
     } catch (err) {
       console.error("Error fetching filtered transactions:", err);
