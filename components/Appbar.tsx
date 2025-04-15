@@ -7,6 +7,7 @@ export const Appbar = () => {
   const router = useRouter();
   const { data, status } = useSession();
   const [logclick,setlogclick] = useState(false)
+  const [addt,setaddt] = useState(false)
 
   const isAuthenticated = data?.user;
 
@@ -38,17 +39,23 @@ export const Appbar = () => {
         </button>
 
         <button
-          className="border-2 border-white px-4 py-2 rounded-md text-white hover:bg-white hover:text-black hover:border-s-black transition-all duration-150 hover:rounded-lg"
+          className={"border-2 border-white px-4 py-2 rounded-md text-white hover:bg-white hover:text-black hover:border-s-black transition-all duration-150 hover:rounded-lg"}
           onClick={() => router.push("../Account")}
         >
           Account
         </button>
 
         <button
-          className="border-2 border-white px-4 py-2 rounded-md text-white hover:bg-white hover:text-black hover:border-s-black transition-all duration-150 hover:rounded-lg"
-          onClick={() => router.push("../Addtransactions")}
+          className={`border-2 border-white px-4 py-2 rounded-md text-white hover:bg-white hover:text-black hover:border-s-black transition-all duration-150 hover:rounded-lg ${addt?"animate-pulse":"animate-none"}`}
+          onClick={() => {
+            setaddt(true)
+            router.push("../Addtransactions")
+            setTimeout(() => {
+                setaddt(false)
+            }, 1200);
+          }}
         >
-          Add Transactions
+          {addt?"Redirecting...":"Add Transactions"}
         </button>
       </div>
     </div>

@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
 
     if (!amount || !description || !category || !type || !createdAt || !userId) {
       return NextResponse.json(
-        { message: "All fields are required: amount, description, category, type, createdAt, userId" },
+        { msg: "All fields are required: amount, description, category, type, createdAt, userId" },
         { status: 400 }
       );
     }
@@ -28,6 +28,6 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     console.error("Transaction creation failed:", error);
-    return NextResponse.json({ message: "Internal server error" }, { status: 500 });
+    return NextResponse.json({ msg: "Internal server error" }, { status: 500 });
   }
 }

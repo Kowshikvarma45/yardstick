@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { set } from "mongoose";
 
 const categories = [
   "Food",
@@ -16,6 +17,7 @@ const categories = [
 ];
 
 export default function AddTransactionPage() {
+    const[clicked,setclicked] = useState(false)
   const [amount, setAmount] = useState<number>(0);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Other");
@@ -31,6 +33,7 @@ export default function AddTransactionPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setclicked(true)
     try {
       const res = await axios.post("/api/Addtransactions", {
         //@ts-ignore
@@ -45,10 +48,15 @@ export default function AddTransactionPage() {
       if (res.status === 200) {
         alert("Transaction added successfully!");
         router.push("../")
+        setclicked(false)
+      }else{
+        alert(res.data.msg)
       }
+      setclicked(false)
     } catch (err) {
       console.error(err);
       alert("Failed to add transaction.");
+      setclicked(false)
     }
   };
 
@@ -134,9 +142,9 @@ export default function AddTransactionPage() {
 
           <button
             type="submit"
-            className="w-full bg-[#008369] hover:bg-[#00a57f] text-white py-2 px-4 rounded-md font-semibold transition duration-200"
+            className={`w-full bg-[#008369] hover:bg-[#00a57f] text-white py-2 px-4 rounded-md font-semibold transition duration-200 ${clicked?"animate-pulse":"animate-none"}`}
           >
-            Add Transaction
+            {clicked?"Adding...":"Add Transaction"}
           </button>
         </form>
       </motion.div>
