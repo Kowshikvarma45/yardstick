@@ -1,15 +1,14 @@
 # Yardstick - Personal Finance Tracker
 
 ## Getting Started
-Getting Started With Project
-Just sign up with any random email (no email verification required).
-Once logged in:
+## How to Test?
+-Just sign up with any random email (no email verification required).
+-Once logged in:
+-Click on Add Transaction to log your expenses.
 
-Click on Add Transaction to log your expenses.
+-After adding, you'll instantly see visual charts and graphs.
 
-After adding, you'll instantly see visual charts and graphs.
-
-Now you’re all set to track your finances! 📈
+-Now you’re all set to track your finances! 📈
 
 
 
