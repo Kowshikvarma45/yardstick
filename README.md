@@ -1,6 +1,3 @@
-Here's the complete README.md in the exact format you want, continuing from where we left off:
-
-```markdown
 # Yardstick - Personal Finance Tracker
 
 ## Getting Started
