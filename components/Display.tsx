@@ -255,7 +255,7 @@ export default function Display() {
           </h2>
         </div>
         
-        <div className="overflow-y-auto h-[calc(100vh-200px)]">
+        <div className="overflow-y-auto h-[910px]">
           {filtered.length > 0 ? (
             <ul className="divide-y divide-gray-700">
               {filtered.map((tx) => (
