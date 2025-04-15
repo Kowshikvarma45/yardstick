@@ -32,7 +32,7 @@ export default function AddTransactionPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/api/Addtransactions", {
+      const res = await axios.post("/api/Addtransactions", {
         //@ts-ignore
         userId:session.data?.user.userid,
         amount,
